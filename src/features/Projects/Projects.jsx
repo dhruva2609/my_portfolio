@@ -4,7 +4,6 @@ import MangaReaderImg from './MangaReader.png';
 import SahilFoodsImg from './SahilFoods.png';
 import FreelanceImg from './FreelanceHub.png';
 
-// Example projects (replace with your real projects!)
 const projects = [
   {
     title: "FreelanceHub",
@@ -54,79 +53,70 @@ const projects = [
 ];
 
 const Projects = () => {
-  // Animation state
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    // Trigger fade-in after mount
     const timer = setTimeout(() => setShow(true), 150);
     return () => clearTimeout(timer);
   }, []);
 
-  // Helper for fade-in class
-  const fadeClass = show ? "fade show" : "fade";
+  const fadeClass = show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
 
   return (
-    <section id="projects" className="container py-3">
-      <h2 className={`mb-4 text-center ${fadeClass}`} style={{ transition: "opacity 1s" }}>
+    <section id="projects" className="container mx-auto py-8 px-4">
+      <h2
+        className={`mb-8 text-center text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-100 transition-all duration-1000 ${fadeClass}`}
+      >
         Projects
       </h2>
-      <div className="row">
+      <div className="flex flex-wrap gap-6 justify-center">
         {projects.map((project, i) => (
           <div
-            className={`col-md-6 col-lg-4 mb-4 ${fadeClass}`}
-            style={{ transition: `opacity 1s ${0.2 + i * 0.2}s` }}
             key={i}
+            className={`w-full md:w-[48%] lg:w-[31%] transition-all duration-1000 ${fadeClass}`}
+            style={{ transitionDelay: `${0.2 + i * 0.2}s` }}
           >
             <PopUp
-              className="card h-100 shadow"
-              style={{
-                background: "var(--bs-card-bg)",
-                color: "var(--bs-card-color)",
-                boxShadow: "var(--bs-card-shadow)",
-              }}
-            >
-              {project.img && (
+              className="
+                bg-white dark:bg-primary-900
+                shadow-lg dark:shadow-[0_2px_24px_0_rgba(56,189,248,0.14)]
+                hover:shadow-xl dark:hover:shadow-[0_4px_32px_0_rgba(56,189,248,0.21)]
+                rounded-xl h-full flex flex-col
+                transition
+              "
+            > 
+            {project.img && (
                 <img
                   src={project.img}
                   alt={project.title}
-                  className="card-img-top"
-                  style={{
-                    width: "100%",
-                    height: 200,
-                    objectFit: "contain",
-                    background: "#f8f9fa",
-                    display: "block",
-                  }}
+                  className="rounded-t-xl w-full h-48 object-contain bg-neutral-50 dark:bg-primary-800"
                 />
               )}
-
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{project.title}</h5>
-                <p className="card-text">{project.desc}</p>
-                <div className="mb-2">
+              <div className="flex flex-col p-6 flex-1">
+                <h5 className="text-xl font-semibold mb-2 text-primary-800 dark:text-primary-200">{project.title}</h5>
+                <p className="text-neutral-700 dark:text-neutral-900 mb-3">{project.desc}</p>
+                <div className="mb-2 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="badge bg-primary me-1 mb-1">
+                    <span
+                      key={tech}
+                      className="bg-primary-100 dark:bg-primary-800 text-primary-700 dark:text-primary-100 px-3 py-1 rounded-full text-xs font-semibold"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <ul className="list-unstyled mb-3">
+                <ul className="mb-3 space-y-1">
                   {project.highlights.map((h, idx) => (
-                    <li
-                      key={idx}
-                      className="small"
-                      style={{ color: "var(--bs-success)" }}
-                    >
-                      <i className="fas fa-check-circle me-1"></i>
+                    <li key={idx} className="text-green-600 dark:text-green-400 text-sm flex items-center">
+                      <i className="fas fa-check-circle mr-2"></i>
                       {h}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto">
+                <div className="mt-auto flex gap-2">
                   <a
                     href={project.live}
-                    className="btn btn-primary btn-sm me-2"
+                    className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white dark:text-primary-900 font-semibold px-4 py-2 rounded-lg text-sm transition"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -134,7 +124,7 @@ const Projects = () => {
                   </a>
                   <a
                     href={project.code}
-                    className="btn btn-outline-secondary btn-sm"
+                    className="border border-primary-600 dark:border-primary-200 text-primary-600 dark:text-primary-100 hover:bg-primary-50 dark:hover:bg-primary-800 font-semibold px-4 py-2 rounded-lg text-sm transition"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -146,14 +136,17 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <div className={`text-center mt-4 ${fadeClass}`} style={{ transition: "opacity 1s 0.8s" }}>
+      <div
+        className={`text-center mt-8 transition-all duration-1000 ${fadeClass}`}
+        style={{ transitionDelay: "0.8s" }}
+      >
         <a
           href="https://github.com/yourusername"
-          className="btn btn-outline-primary"
+          className="inline-flex items-center border border-primary-600 dark:border-primary-200 text-primary-600 dark:text-primary-100 hover:bg-primary-50 dark:hover:bg-primary-800 font-semibold px-6 py-3 rounded-lg text-base transition"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fab fa-github me-2"></i>
+          <i className="fab fa-github mr-2"></i>
           See More on GitHub
         </a>
       </div>

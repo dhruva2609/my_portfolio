@@ -38,42 +38,51 @@ const Blog = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const fadeClass = show ? "fade show" : "fade";
+  const fadeClass = show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
 
   return (
-    <section id="blog" className="container py-3">
-      <h2 className={`mb-4 text-center ${fadeClass}`} style={{ transition: "opacity 1s" }}>
+    <section id="blog" className="container mx-auto py-8 px-4">
+      <h2
+        className={`mb-8 text-center text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-100 transition-all duration-1000 ${fadeClass}`}
+      >
         Blog
       </h2>
-      <div className="row">
+      <div className="flex flex-wrap gap-6 justify-center">
         {blogPosts.map((post, idx) => (
           <div
-            className={`col-md-6 col-lg-4 mb-4 ${fadeClass}`}
-            style={{ transition: `opacity 1s ${0.2 + idx * 0.2}s` }}
             key={idx}
+            className={`w-full md:w-[48%] lg:w-[31%] transition-all duration-1000 ${fadeClass}`}
+            style={{ transitionDelay: `${0.2 + idx * 0.2}s` }}
           >
-            <PopUp
-              className="card h-100 shadow"
-              style={{
-                background: "var(--bs-card-bg)",
-                color: "var(--bs-card-color)",
-                boxShadow: "var(--bs-card-shadow)",
-              }}
-            >
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{post.title}</h5>
-                <div className="mb-2 text-muted small">{post.date}</div>
-                <div className="mb-2">
-                  {post.tags.map((tag) => (
-                    <span key={tag} className="badge bg-secondary me-1 mb-1">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="card-text mb-3">{post.summary}</p>
+            <PopUp className="bg-white dark:bg-primary-900
+                shadow-lg dark:shadow-[0_2px_24px_0_rgba(56,189,248,0.14)]
+                hover:shadow-xl dark:hover:shadow-[0_4px_32px_0_rgba(56,189,248,0.21)]
+                rounded-xl h-full flex flex-col
+                transition">
+              <div className="flex flex-col p-6 flex-1">
+                <h5 className="text-xl font-semibold mb-2 text-primary-800 dark:text-primary-200">{post.title}</h5>
+                <div className="mb-1 text-neutral-500 dark:text-neutral-700 text-sm">{post.date}</div>
+                <div className="mb-2 flex flex-wrap gap-2">
+  {post.tags.map((tag) => (
+    <span
+      key={tag}
+      className="bg-primary-100 dark:bg-primary-800
+                  text-primary-700 dark:text-primary-100
+                  px-3 py-2 rounded-full text-sm font-semibold
+                  shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
+                  hover:shadow-lg dark:hover:shadow-[0_4px_16px_0_rgba(56,189,248,0.18)]
+                  transition
+                  cursor-pointer"
+    >
+      {tag}
+    </span>
+  ))}
+</div>
+
+                <p className="text-neutral-700 dark:text-neutral-900 mb-4">{post.summary}</p>
                 <a
                   href={post.url}
-                  className="btn btn-outline-primary btn-sm mt-auto"
+                  className="mt-auto inline-block text-center border border-primary-600 dark:border-primary-200 text-primary-600 dark:text-primary-100 hover:bg-primary-50 dark:hover:bg-primary-800 font-semibold px-4 py-2 rounded-lg text-sm transition"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -84,14 +93,17 @@ const Blog = () => {
           </div>
         ))}
       </div>
-      <div className={`text-center mt-4 ${fadeClass}`} style={{ transition: "opacity 1s 0.8s" }}>
+      <div
+        className={`text-center mt-8 transition-all duration-1000 ${fadeClass}`}
+        style={{ transitionDelay: "0.8s" }}
+      >
         <a
           href="https://dhruvapandya.com/blog"
-          className="btn btn-primary"
+          className="inline-flex items-center bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white dark:text-primary-900 font-semibold px-6 py-3 rounded-lg text-base transition"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fas fa-blog me-2"></i>
+          <i className="fas fa-blog mr-2"></i>
           See All Posts by Dhruva Pandya
         </a>
       </div>

@@ -7,16 +7,15 @@ const socialLinks = [
 ];
 
 const Footer = () => (
-  <footer
-    className="text-center py-4 mt-5 border-top"
-    style={{
-      background: "var(--bs-card-bg)",
-      color: "var(--bs-card-color)",
-      fontSize: "1.08rem",
-      letterSpacing: "0.2px",
-    }}
-  >
-    <div className="mb-2 d-flex justify-content-center gap-3">
+  <footer className="
+    bg-primary-50/80 dark:bg-primary-900/80
+    border-t border-primary-200 dark:border-primary-700
+    text-center py-6
+    text-neutral-700 dark:text-primary-200
+    text-base tracking-wide
+    transition-colors duration-300
+  ">
+    <div className="mb-2 flex justify-center gap-5">
       {socialLinks.map((link) => (
         <a
           key={link.label}
@@ -24,24 +23,21 @@ const Footer = () => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.label}
-          className="text-decoration-none"
-          style={{
-            color: "var(--bs-primary)",
-            fontSize: "1.3rem",
-            transition: "color 0.18s",
-          }}
-          onMouseOver={e => (e.currentTarget.style.color = "var(--bs-secondary)")}
-          onMouseOut={e => (e.currentTarget.style.color = "var(--bs-primary)")}
+          className="
+            text-primary-600 hover:text-accent-500
+            dark:text-primary-100 dark:hover:text-accent-400
+            transition-colors duration-200 text-xl
+          "
         >
           <i className={link.icon}></i>
         </a>
       ))}
     </div>
-    <div style={{ opacity: 0.85 }}>
-      &copy; {new Date().getFullYear()} <span className="fw-bold">Dhruva Pandya</span> &mdash; All rights reserved.
+    <div className="opacity-85">
+      &copy; {new Date().getFullYear()} <span className="font-bold">Dhruva Pandya</span> &mdash; All rights reserved.
     </div>
-    <div className="mt-1 small text-muted">
-      Made with <span style={{ color: "#f44336" }}>♥</span> using React
+    <div className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+      Made with <span className="text-red-500">♥</span> using React
     </div>
   </footer>
 );

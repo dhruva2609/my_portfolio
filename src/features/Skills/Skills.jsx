@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PopUp from "../../components/PopUp";
 
-// Example skill data with categories, levels, and icons (FontAwesome)
+// Skill data with categories, levels, and icons (FontAwesome)
 const skillCategories = [
   {
     category: "Frontend",
@@ -33,10 +33,11 @@ const skillCategories = [
   },
 ];
 
+// Brand badge color mapping (with dark mode support)
 const levelColors = {
-  Advanced: "success",
-  Intermediate: "primary",
-  Beginner: "secondary",
+  Advanced: "bg-primary-700 dark:bg-primary-100 text-white dark:text-primary-900",
+  Intermediate: "bg-primary-500 dark:bg-primary-200 text-white dark:text-primary-900",
+  Beginner: "bg-primary-300 dark:bg-primary-300 text-white dark:text-primary-900",
 };
 
 const softSkills = [
@@ -57,48 +58,45 @@ const Skills = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const fadeClass = show ? "fade show" : "fade";
+  const fadeClass = show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
 
   return (
-    <section id="skills" className="container py-3">
-      <h2 className={`mb-4 text-center ${fadeClass}`} style={{ transition: "opacity 1s" }}>
+    <section id="skills" className="container mx-auto py-8 px-4">
+      <h2
+        className={`mb-8 text-center text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-100 transition-all duration-1000 ${fadeClass}`}
+      >
         Skills
       </h2>
-      <div className="row">
+      <div className="flex flex-col md:flex-row gap-6">
         {skillCategories.map((cat, idx) => (
           <div
-            className={`col-md-4 mb-4 ${fadeClass}`}
-            style={{ transition: `opacity 1s ${0.2 + idx * 0.2}s` }}
+            className={`w-full md:w-1/3 transition-all duration-1000 ${fadeClass}`}
+            style={{ transitionDelay: `${0.2 + idx * 0.2}s` }}
             key={cat.category}
           >
-            <PopUp
-              className="card shadow h-100"
-              style={{
-                background: "var(--bs-card-bg)",
-                color: "var(--bs-card-color)",
-                boxShadow: "var(--bs-card-shadow)",
-              }}
-            >
-              <div className="card-body">
-                <h4 className="card-title text-primary mb-3 text-center">
+            <PopUp className="bg-white dark:bg-primary-900
+                shadow-lg dark:shadow-[0_2px_24px_0_rgba(56,189,248,0.14)]
+                hover:shadow-xl dark:hover:shadow-[0_4px_32px_0_rgba(56,189,248,0.21)]
+                rounded-xl h-full flex flex-col
+                transition">
+              <div className="p-6">
+                <h4 className="text-primary-600 dark:text-primary-200 text-xl font-semibold mb-4 text-center">
                   {cat.category}
                 </h4>
-                <ul className="list-group list-group-flush" role="list">
+                <ul className="space-y-3" role="list">
                   {cat.skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="list-group-item d-flex align-items-center justify-content-between"
-                      style={{
-                        background: "var(--bs-card-bg)",
-                        color: "var(--bs-card-color)",
-                      }}
+                      className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-primary-50 dark:hover:bg-primary-800 transition"
                       role="listitem"
                     >
-                      <span>
-                        <i className={`${skill.icon} me-2`} style={{ fontSize: "1.2rem" }}></i>
+                      <span className="flex items-center gap-2 text-neutral-800 dark:text-primary-100">
+                        <i className={`${skill.icon} text-lg`} />
                         {skill.name}
                       </span>
-                      <span className={`badge bg-${levelColors[skill.level]} text-white`}>
+                      <span
+                        className={`text-xs px-3 py-1 rounded-full font-semibold ${levelColors[skill.level]}`}
+                      >
                         {skill.level}
                       </span>
                     </li>
@@ -110,18 +108,16 @@ const Skills = () => {
         ))}
       </div>
       {/* Soft skills */}
-      <div className={`mt-5 text-center ${fadeClass}`} style={{ transition: "opacity 1s 0.8s" }}>
-        <h5 className="mb-3 text-secondary">Soft Skills</h5>
-        <div className="d-flex flex-wrap justify-content-center gap-3 py-3">
+      <div
+        className={`mt-10 text-center transition-all duration-1000 ${fadeClass}`}
+        style={{ transitionDelay: "0.8s" }}
+      >
+        <h5 className="mb-4 text-primary-600 dark:text-primary-200 text-lg font-semibold">Soft Skills</h5>
+        <div className="flex flex-wrap justify-center gap-3 py-3">
           {softSkills.map((skill) => (
-            <PopUp key={skill} scale={1.08} style={{ display: "inline-block" }}>
+            <PopUp key={skill}>
               <span
-                className="badge rounded-pill bg-primary text-white px-4 py-2 fs-6"
-                style={{
-                  fontWeight: 500,
-                  letterSpacing: "0.5px",
-                  cursor: "pointer",
-                }}
+                className="inline-block bg-primary-500 dark:bg-primary-200 text-white dark:text-primary-900 px-5 py-2 rounded-full font-medium text-sm tracking-wide shadow hover:bg-primary-600 dark:hover:bg-primary-300 transition cursor-pointer"
               >
                 {skill}
               </span>
