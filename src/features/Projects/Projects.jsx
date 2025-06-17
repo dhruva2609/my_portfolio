@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Sahil Foods",
     desc: "A delightful single-page website for a local bakery, showcasing products, menu, and contact information. Built with pure HTML, CSS, and JavaScript for smooth navigation and a delicious visual experience.",
-    live: "https://sahilfoods-demo.vercel.app/",
+    live: "https://sahil-foods.vercel.app/",
     code: "https://github.com/dhruva2609/SahilFoods",
     img: SahilFoodsImg,
     tech: ["HTML", "CSS", "JavaScript"],
