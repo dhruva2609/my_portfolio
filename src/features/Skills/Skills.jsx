@@ -79,7 +79,7 @@ const Skills = () => {
                 hover:shadow-xl dark:hover:shadow-[0_4px_32px_0_rgba(56,189,248,0.21)]
                 rounded-xl h-full flex flex-col border border-blue-100 dark:border-primary-800 transition">
               <div className="p-6">
-                <h4 className="text-blue-700 dark:text-primary-200 text-xl font-semibold mb-4 text-center">
+                <h4 className="text-blue-600 dark:text-primary-200 text-xl font-semibold mb-4 text-center">
                   {cat.category}
                 </h4>
                 <ul className="space-y-3" role="list">
