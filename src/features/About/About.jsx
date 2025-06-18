@@ -76,7 +76,7 @@ const About = () => {
                 <span
                   key={skill}
                   className="
-                    bg-blue-100 dark:bg-primary-800
+                    bg-blue-100 dark:bg-primary-800 border border-primary-700
                     text-blue-700 dark:text-primary-100
                     px-3 py-2 rounded-full text-sm font-semibold
                     shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
