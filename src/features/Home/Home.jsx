@@ -66,7 +66,7 @@ const Home = () => {
           </p>
           <a
             href="/projects"
-            className="text-lg inline-block bg-blue-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white dark:text-primary-900 font-semibold px-6 py-3 mr-3 rounded-lg text-base transition "
+            className="text-lg inline-block bg-blue-600 hover:bg-blue-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white dark:text-primary-900 font-semibold px-6 py-3 mr-3 rounded-lg text-base transition "
           >
             View My Work
           </a>
