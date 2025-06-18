@@ -98,19 +98,20 @@ const Projects = () => {
                 <div className="mb-2 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
-  key={tech}
-  className="
-    bg-blue-100 dark:bg-primary-800
-    text-blue-700 dark:text-primary-100 border border-blue-900
-    px-2 py-0.5 rounded-full text-xs font-semibold
-    shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
-    hover:shadow-lg dark:hover:shadow-[0_4px_16px_0_rgba(56,189,248,0.18)]
-    transition
-    cursor-pointer
-  "
->
-  {tech}
-</span>
+                  key={tech}
+                  className="
+                    bg-blue-100 dark:bg-primary-800
+                    text-blue-700 dark:text-primary-100
+                    border border-blue-100 dark:border-primary-700
+                    px-2 py-0.5 rounded-full text-xs font-semibold
+                    shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
+                    hover:shadow-lg dark:hover:shadow-[0_4px_16px_0_rgba(56,189,248,0.18)]
+                    transition
+                    cursor-pointer
+                  "
+                >
+                  {tech}
+                </span>
 
                   ))}
                 </div>
@@ -132,18 +133,20 @@ const Projects = () => {
                     Live
                   </a>
                   <a
-                    href={project.code}
-                    className="border border-primary-600
-                    text-primary-600
-                    dark:border-primary-200
-                    dark:text-primary-100
-                    dark:hover:text-white
-                    font-semibold px-4 py-2 rounded-lg text-sm transition"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Code
-                  </a>
+                  href={project.code}
+                  className="
+                    border border-primary-600 text-primary-600
+                    dark:border-primary-200 dark:text-primary-100
+                    bg-transparent
+                    hover:bg-primary-600 hover:text-white
+                    dark:hover:bg-primary-200 dark:hover:text-primary-900
+                    font-semibold px-4 py-2 rounded-lg text-sm transition
+                  "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Code
+                </a>
                 </div>
               </div>
             </PopUp>
