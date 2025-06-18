@@ -26,8 +26,8 @@ const Home = () => {
   const fadeClass = show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
 
   return (
-    <section className="container mx-auto py-10 min-h-[80vh] bg-gray-50 dark:bg-gradient-to-br dark:from-primary-900 dark:via-primary-800 dark:to-primary-700 transition-colors duration-300">
-      <div className="flex flex-col md:flex-row items-center">
+    <section id="about" className="container mx-auto py-10 px-4">
+       <div className="flex flex-col md:flex-row items-center">
         {/* Profile image and social links */}
         <div className={`w-full md:w-1/3 flex flex-col items-center mb-8 md:mb-0 transition-all duration-1000 ${fadeClass}`}>
           <img
