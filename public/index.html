@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>React Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts (Montserrat) -->
+   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700&display=swap" rel="stylesheet">
+ <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind config: MUST be above CDN script -->
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: 'rgb(var(--primary-50) / <alpha-value>)',
+                100: 'rgb(var(--primary-100) / <alpha-value>)',
+                200: 'rgb(var(--primary-200) / <alpha-value>)',
+                300: 'rgb(var(--primary-300) / <alpha-value>)',
+                400: 'rgb(var(--primary-400) / <alpha-value>)',
+                500: 'rgb(var(--primary-500) / <alpha-value>)',
+                600: 'rgb(var(--primary-600) / <alpha-value>)',
+                700: 'rgb(var(--primary-700) / <alpha-value>)',
+                800: 'rgb(var(--primary-800) / <alpha-value>)',
+                900: 'rgb(var(--primary-900) / <alpha-value>)',
+              },
+              accent: {
+                500: 'rgb(var(--accent-500) / <alpha-value>)',
+                600: 'rgb(var(--accent-600) / <alpha-value>)',
+              },
+              neutral: {
+                50:  'rgb(var(--neutral-50) / <alpha-value>)',
+                100: 'rgb(var(--neutral-100) / <alpha-value>)',
+                200: 'rgb(var(--neutral-200) / <alpha-value>)',
+                300: 'rgb(var(--neutral-300) / <alpha-value>)',
+                400: 'rgb(var(--neutral-400) / <alpha-value>)',
+                500: 'rgb(var(--neutral-500) / <alpha-value>)',
+                600: 'rgb(var(--neutral-600) / <alpha-value>)',
+                700: 'rgb(var(--neutral-700) / <alpha-value>)',
+                800: 'rgb(var(--neutral-800) / <alpha-value>)',
+                900: 'rgb(var(--neutral-900) / <alpha-value>)',
+              },
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'ui-sans-serif', 'system-ui'],
+            },
+          },
+        },
+      }
+    </script>
+    
+    <!-- Tailwind v4 dark variant utility -->
+    <style type="text/tailwindcss">
+      @variant dark (&:where(.dark, .dark *));
+    </style>
+    <!-- Custom Palette: Light & Navy Blue Dark Mode -->
+    <style>
+      :root {
+  /* Main backgrounds and text */
+  --primary-50: 234 242 248;    /* #eaf2f8, bs-body-bg */
+  --primary-100: 248 249 250;   /* #f8f9fa, bs-light */
+  --primary-200: 251 251 251;   /* #fbfbfb, bs-textarea-bg */
+  --primary-300: 255 255 255;   /* #fff, bs-card-bg/nav-bg */
+  --primary-400: 44 62 80;      /* #2c3e50, bs-body-color/card-color */
+  --primary-500: 28 57 101;     /* #1c3965, bs-primary */
+  --primary-600: 107 113 121;   /* #6b7179, bs-secondary */
+  --primary-700: 222 226 230;   /* #dee2e6, bs-border-color */
+  --primary-800: 0 0 0;         /* fallback/unused */
+  --primary-900: 24 28 34;      /* #181c22, bs-dark */
+
+  /* Accent/info */
+  --accent-500: 13 202 240;     /* #0dcaf0, bs-info */
+  --accent-600: 59 130 246;     /* #3b82f6, bs-primary for accent */
+
+  /* Success, warning, danger */
+  --success-100: 212 237 218;   /* #d4edda, bs-success-100 */
+  --success-500: 25 135 84;     /* #198754, bs-success */
+  --warning-500: 251 191 36;    /* #fbbf24, bs-warning */
+  --danger-500: 220 53 69;      /* #dc3545, bs-danger */
+
+  /* Neutral/gray for text, borders, etc. */
+  --neutral-50: 248 249 250;    /* #f8f9fa, bs-light */
+  --neutral-100: 243 244 246;   /* #f3f4f6, soft gray */
+  --neutral-200: 229 231 235;   /* #e5e7eb, soft gray */
+  --neutral-300: 222 226 230;   /* #dee2e6, border */
+  --neutral-400: 173 181 189;   /* #adb5bd, muted text */
+  --neutral-500: 44 62 80;      /* #2c3e50, main text */
+  --neutral-600: 107 113 121;   /* #6b7179, secondary text */
+  --neutral-700: 24 28 34;      /* #181c22, dark text */
+  --neutral-800: 33 37 41;      /* #212529, extra dark */
+  --neutral-900: 24 26 27;      /* #181a1b, extra dark */
+}
+
+      .dark {
+  /* Primary (brand/blue): darkest for backgrounds, lightest for text */
+  --primary-900: 15 23 42;         /* Deep navy background */
+  --primary-800: 22 36 64;         /* Card backgrounds */
+  --primary-700: 30 58 138;        /* Borders, subtle bg */
+  --primary-600: 56 189 248;       /* Accent blue for headings, links */
+  --primary-500: 125 211 252;      /* Lighter blue for text, badges */
+  --primary-400: 186 230 253;      /* Even lighter blue for text */
+  --primary-300: 224 242 254;      /* Almost white-blue for text */
+  --primary-200: 240 249 255;      /* Near white for text */
+  --primary-100: 255 255 255;      /* Pure white for headings/highlights */
+  --primary-50: 255 255 255;       /* Pure white for headings/highlights */
+
+  /* Accent (indigo): vibrant for buttons, links */
+  --accent-500: 165 180 252;
+  --accent-600: 129 140 248;
+
+  /* Neutral (gray): light for text, dark for backgrounds */
+  --neutral-900: 255 255 255;      /* White for main text */
+  --neutral-800: 229 231 235;      /* Very light gray for subheadings */
+  --neutral-700: 209 213 219;      /* Light gray for muted text */
+  --neutral-600: 156 163 175;      /* Medium gray for secondary text */
+  --neutral-500: 107 114 128;      /* Muted gray for subtle text */
+  --neutral-400: 75 85 99;
+  --neutral-300: 55 65 81;
+  --neutral-200: 31 41 55;
+  --neutral-100: 24 24 27;
+  --neutral-50: 17 24 39;          /* Very dark gray for backgrounds */
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
