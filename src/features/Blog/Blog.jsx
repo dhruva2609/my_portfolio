@@ -63,19 +63,23 @@ const Blog = () => {
                 <h5 className="text-xl font-semibold mb-2 text-primary-800 dark:text-primary-200">{post.title}</h5>
                 <div className="mb-1 text-neutral-500 dark:text-neutral-700 text-sm">{post.date}</div>
                 <div className="mb-2 flex flex-wrap gap-2">
-  {post.tags.map((tag) => (
-    <span
-      key={tag}
-      className="bg-blue-100 dark:bg-primary-800
-    text-blue-700 dark:text-primary-100 border border-blue-900
-    px-2 py-0.5 rounded-full text-xs font-semibold
-    shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
-    hover:shadow-lg dark:hover:shadow-[0_4px_16px_0_rgba(56,189,248,0.18)]
-    transition
-    cursor-pointer"
-    >
-      {tag}
-    </span>
+            {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="
+                bg-blue-100 dark:bg-primary-800
+                text-blue-700 dark:text-primary-100
+                border border-blue-100 dark:border-primary-700
+                px-2 py-0.5 rounded-full text-xs font-semibold
+                shadow-md dark:shadow-[0_2px_8px_0_rgba(56,189,248,0.12)]
+                hover:shadow-lg dark:hover:shadow-[0_4px_16px_0_rgba(56,189,248,0.18)]
+                transition
+                cursor-pointer
+              "
+            >
+              {tag}
+            </span>
+
   ))}
 </div>
 
